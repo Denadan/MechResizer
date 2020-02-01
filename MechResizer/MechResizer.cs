@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Reflection;
 using Harmony;
-using Newtonsoft.Json;
+using HBS.Util;
+//using Newtonsoft.Json;
 
 namespace MechResizer
 {
@@ -18,7 +19,7 @@ namespace MechResizer
             ModDirectory = directory;
             try
             {
-                ModSettings = JsonConvert.DeserializeObject<Settings>(settingsJSON);
+                JSONSerializationUtility.FromJSON(ModSettings, settingsJSON);
             }
             catch (Exception ex)
             {

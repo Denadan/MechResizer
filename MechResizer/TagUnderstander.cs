@@ -21,7 +21,7 @@ namespace MechResizer
                 // for tags of style 'MR-Resize-N`
                 if (parts.Length == 3)
                 {
-                    var resizeNumber = float.Parse(parts[2]);
+                    var resizeNumber = float.Parse(parts[2], CultureInfo.InvariantCulture);
                     size = new Vector3(resizeNumber, resizeNumber, resizeNumber);
                     Logger.Debug($"size from singular tag: [{size.Value.x},{size.Value.y},{size.Value.z}]");
                     return true;
@@ -30,9 +30,9 @@ namespace MechResizer
                 // for tags of style 'MR-Resize-X-Y-Z`
                 if (parts.Length == 5)
                 {
-                    var resizeX = float.Parse(parts[2]);
-                    var resizeY = float.Parse(parts[3]);
-                    var resizeZ = float.Parse(parts[4]);
+                    var resizeX = float.Parse(parts[2], CultureInfo.InvariantCulture);
+                    var resizeY = float.Parse(parts[3], CultureInfo.InvariantCulture);
+                    var resizeZ = float.Parse(parts[4], CultureInfo.InvariantCulture);
                     size = new Vector3(resizeX, resizeY, resizeZ);
                     Logger.Debug($"size from multi-tag: [{size.Value.x},{size.Value.y},{size.Value.z}]");
                     return true;
